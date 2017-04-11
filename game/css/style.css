@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css?family=Palanquin+Dark:500');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Palanquin Dark', sans-serif;
+  text-align: center;
+}
+
+.game-section {
+  display: inline-block;
+  width: 930px;
+  height: 100%;
+}
+
+.game-wrapper {
+  position: relative;
+}
+
+#game-panel {
+  text-align: center;
+  height: 80px;
+  width: 100%;
+  padding: 5px 15px 0 15px;
+  background: #55C5F5;
+}
+
+.game-panel-inner {
+  height: 100%;
+  border-bottom: 2px solid #41a8dc;
+}
+
+#game-panel span:not(#minutes):not(#seconds):not(.delimeter) {
+  height: 70px;
+  color: paleturquoise;
+  font-size: 34px;
+}
+
+.life {
+  float: left;
+}
+
+.life img {
+  display: block;
+  float: left;
+  width: 65px;
+  height: 65px;
+}
+
+.life span {
+  display: block;
+  float: left;
+  width: 40px;
+}
+
+.life span:first-of-type {
+  margin-left: 8px;
+}
+
+
+.game-time {
+  float: left;
+  width: 160px;
+  height: 68px;
+  border-radius: 50px;
+  border: 3px solid paleturquoise;
+}
+.game-time span:not(.delimeter) {
+  height: 63px;
+  width: 43px;
+}
+
+.game-time span {
+  display: inline-block;
+    color: paleturquoise;
+    font-size: 34px;
+}
+
+.game-time::before {
+  content: "\f017";
+  font-family: FontAwesome;
+  font-size: 34px;
+  color: paleturquoise;
+  margin-right: 3px;
+}
+
+.score {
+  float: right;
+}
+
+.score span:last-of-type {
+  display: inline-block;
+  width: 115px;
+  text-align: right;
+}
+
+#play-control {
+  position: absolute;
+  right: 50%;
+  left: 48%;
+  cursor: pointer;
+}
+
+#play:before {
+  content: "\f144";
+  font-family: FontAwesome;
+  color: red;
+}
+
+#pause:before {
+  content: "\f28b";
+  font-family: FontAwesome;
+  color: red;
+}
+
+.scene {
+  position: absolute;
+  width: 930px;
+  height: 566px;
+  background-image: url('../img/sky-bg.jpg');
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+#start-scene {
+  opacity: 1;
+  visibility: visible;
+}
+
+h1 {
+  position: absolute;
+  width: 930px;
+  font-size: 120px;
+  color: darkslategray;
+  text-shadow: 1px 2px 3px rgb(5, 46, 79);
+}
+
+h1::after {
+  position: absolute;
+  margin: 55px 0 0 10px;
+  content: "\f11b";
+  font-family: FontAwesome;
+  font-size: 46px;
+  color: darkslategray;
+}
+
+#game-over-scene {
+  opacity: 1;
+  visibility: hidden;
+}
+
+#score-block {
+  position: absolute;
+  left: 34%;
+  right: 34%;
+  top: 40px;
+  width: 298px;
+  height: 295px;
+  background: deepskyblue;
+  border: 10px solid azure;
+  border-radius: 50px;
+  opacity: 0.8;
+}
+
+.score-block-inner {
+  width: 278px;
+  height: 276px;
+  font-size: 34px;
+  text-align: left;
+  padding: 15px 15px 15px 20px;
+  color: orangered;
+}
+
+.score-block-inner span {
+  display: inline-block;
+}
+
+.score-block-inner span:first-child {
+  width: 40%;
+}
+
+.score-block-inner span:last-child {
+  width: 56%;
+}
+
+.button {
+  margin-top: 40%;
+  background-color: red;
+  border-radius: 50px;
+  padding-top: 20px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0.8;
+}
+
+.button:hover {
+  opacity: 0.5;
+}
+
+#start-button {
+  display: inline-block;
+  width: 295px;
+  height: 70px;
+
+}
+
+#try-again-button {
+  display: none;
+  width: 295px;
+  height: 70px;
+}
+
+#start-button,
+#try-again-button span {
+  color: white;
+  font-size: 36px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+#toast {
+  position: absolute;
+  visibility: hidden;
+
+  top: 190px;
+  width: 930px;
+
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  color: orange;
+
+  opacity: 1;
+  z-index: 1;
+}
+
+#fps {
+  display: inline-block;
+  width: 100px;
+  height: 70px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: red;
+}
+
+#canvas {
+  display: inline-block;
+
+  width: 930px;
+  height: 566px;
+}

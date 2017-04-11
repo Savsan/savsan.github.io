@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Planerist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://use.fontawesome.com/6d7e35470d.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <section class="game-section">
+        <div class="game-wrapper">
+          <div id="game-panel">
+            <div class="game-panel-inner">
+              <div class="life">
+                <img class="life-sign" src="img/life-sign.png" alt="">
+                <span>x</span>
+                <span id="life-count"></span>
+              </div>
+              <div class="game-time">
+                <span id="minutes"></span>
+                <span class="delimeter">:</span>
+                <span id="seconds"></span>
+              </div>
+              <div id="play-control">
+                <span id="pause"></span>
+                <span id="play"></span>
+              </div>
+              <div class="score">
+                <span>score:</span>
+                <span id="score"></span>
+              </div>
+            </div>
+          </div>
+          <div class="game">
+            <div id="start-scene" class="scene">
+              <h1>Planerist</h1>
+              <div id="start-button" class="button">
+                <span>start game</span>
+              </div>
+            </div>
+            <div id="game-over-scene" class="scene">
+              <div id="score-block">
+                <div class="score-block-inner">
+                  <div class="level-score">
+                    <span>Level:</span>
+                    <span id="level-score"></span>
+                  </div>
+                  <div class="birds-score">
+                    <span>Birds:</span>
+                    <span id="birds-score"></span>
+                  </div>
+                  <div class="stars-score">
+                    <span>Stars:</span>
+                    <span id="stars-score"></span>
+                  </div>
+                  <div class="total-score">
+                    <span>Score:</span>
+                    <span id="total-score"></span>
+                  </div>
+                </div>
+              </div>
+              <div id="try-again-button" class="button">
+                <span>try again</span>
+              </div>
+            </div>
+            <div id="game-over"></div>
+            <div id="toast"></div>
+            <canvas id="canvas"></canvas>
+          </div>
+      </section>
+    </div>
+  </body>
+  <script src="js/game.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/sprite.js"></script>
+  <script src="js/keyboard.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/listeners.js"></script>
+</html>
