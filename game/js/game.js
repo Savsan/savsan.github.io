@@ -97,7 +97,8 @@ class Game {
             'img/bird-explosion.png',
             'img/bullet.png',
             'img/yellow-star-sprite.png',
-            'img/health-sprite.png'
+            'img/health-sprite.png',
+            'back-melody.ogg'
         ]);
         // Toasts............................................................
         this.toast = document.getElementById('toast');
@@ -132,7 +133,6 @@ class Game {
 
         if(this.velocity < 450){
             setTimeout(() => {
-                //this.velocity += this.velocityAcceleration;
                 this.enemySpeed += this.enemySpeedAcceleration;
             }, 1000);
         }
@@ -141,17 +141,9 @@ class Game {
     nextLevel(){
         this.level++;
         this.showToast(`Level ${this.level}`, 2000);
-
-        //this.velocity = this.lastVelocity;
         this.enemySpeed = this.lastEnemySpeed;
-
-        //this.velocity += 5;
         this.enemySpeed += 10;
-
-       // this.lastVelocity = this.velocity;
         this.lastEnemySpeed = this.enemySpeed;
-
-       // this.velocityAcceleration += 0.01;
         this.enemySpeedAcceleration += 0.01;
     }
 
