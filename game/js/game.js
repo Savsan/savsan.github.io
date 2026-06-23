@@ -78,14 +78,13 @@ class Game {
         // Useful objects of the game
         this.stars = [];
         this.health = [];
-        // Game audio
+        // Game audio setup
         this.starAudio = new AudioPool('audio/star-spell.wav', 0.3, 10);
         this.shotAudio = new AudioPool('audio/plane-shot.wav', 0.14, 12);
         this.planeExplosionAudio = new AudioPool('audio/plane-explode.wav', 0.45, 1);
         this.planeEngineAudio = new AudioPool('audio/plane-engine.ogg', 0.3, 1, true);
         this.birdDeathAudio = new AudioPool('audio/bird-death.flac', 0.25, 50);
         this.backgroundAudio = new AudioPool('audio/back-melody.ogg', 1, 1, true);
-        this.backgroundAudio.play();
         // Check if resources were loaded
         this.resources = new Resources();
         this.resources.load([
@@ -625,7 +624,7 @@ class Game {
            this.playElement.style.display = 'inline-block';
            this.planeEngineAudio.pause();
            this.backgroundAudio.pause();
-        }else{
+        } else {
            this.lastAnimationFrameTime += (time - this.pauseStartTime);
            this.pauseElement.style.display = 'inline-block';
            this.playElement.style.display = 'none';
@@ -636,11 +635,11 @@ class Game {
 
     // Game state && cycle...................................................
     animate(now){
-        if(this.paused){
+        if(this.paused) {
             setTimeout( () => {
                 requestAnimationFrame(this.animate.bind(this));
              }, this.pausedICheckInterval);
-        }else if(!this.paused){
+        } else if(!this.paused) {
             this.update(now);
             requestAnimationFrame(this.animate.bind(this));
         }
@@ -653,6 +652,7 @@ class Game {
 
     init(){
         this.sky.src = 'img/sky-bg.jpg';
+        this.backgroundAudio.play();
         this.startGame();
     }
 }

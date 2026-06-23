@@ -6,9 +6,11 @@ class AudioPool {
 
         for (let i = 0; i < this.size; i++) {
             const audioEntity = new Audio(filePath);
+
             audioEntity.volume = volume;
             audioEntity.loop  = loop;
             audioEntity.load();
+
             this.pool[i] = audioEntity;
         }
     }
@@ -18,26 +20,35 @@ class AudioPool {
             for(let i = 0; i < this.pool.length; i++) {
                 this.pool[i].volume = volume;
             }
-        }else{
+        } else {
             throw 'Passed parameter is not a number.';
         }
     }
 
     play(){
-        let currentPlayTime = this.pool[this.currSound].currentTime;
-        let isEnded = this.pool[this.currSound].ended;
-        let isPaused = this.pool[this.currSound].paused;
+        let sound = this.pool[this.currSound];
 
-        if (currentPlayTime == 0 || isEnded || isPaused) {
-            this.pool[this.currSound].play();
+        // Сбрасываем в начало, если звук уже играл или закончился
+        if (sound.ended || !sound.paused) {
+            sound.currentTime = 0;
         }
+
+        // Обработка промиса для предотвращения ошибок автовоспроизведения
+        let playPromise = sound.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.warn("Autoplay prevented or audio error:", error);
+            });
+        }
+
         this.currSound = (this.currSound + 1) % this.size;
     }
 
     pause(){
-        let currentPlayTime = this.pool[this.currSound].currentTime;
-        if (currentPlayTime != 0) {
-            this.pool[this.currSound].pause();
-        }
+        this.pool.forEach(sound => {
+            if (!sound.paused) {
+                sound.pause();
+            }
+        });
     }
 }
